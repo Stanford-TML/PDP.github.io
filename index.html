@@ -113,15 +113,15 @@
                                     </a>
                                 </span>
                                 <!-- Video Link. -->
-                                <!-- <span class="link-block">
-                                    <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                                <span class="link-block">
+                                    <a href="https://youtu.be/Uy3rY2K6t3Y"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fab fa-youtube"></i>
                                         </span>
                                         <span>Video</span>
                                     </a>
-                                </span> -->
+                                </span>
                                 <!-- Code Link. -->
                                 <span class="link-block">
                                     <a href="https://github.com/Stanford-TML"
@@ -241,7 +241,7 @@
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Video</h2>
                     <div class="publication-video">
-                        <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0" frameborder="0"
+                        <iframe src="https://www.youtube.com/embed/Uy3rY2K6t3Y" frameborder="0"
                             allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -260,8 +260,8 @@
                         <figure class="image">
                             <img src="./static/images/system_overview_and_arch.jpg" alt="PDP method overview">
                         </figure>
-                        <p>
-                            Placeholder
+                        <p style="text-align: justify;">
+                            Our method consists of three steps. First, we divide a motion dataset into tasks and train an RL policy for each task. Next, we use the expert policies to collect "noisy-state clean-action" trajectories, where the noisy state is obtained by executing actions from the RL policy with added noise, and the clean action is simply the action from the RL policy without noisy. The clean action can be thought of as a corrective action from a noisy state. Lastly, we use the resulting dataset to train a diffusion policy using supervised learning.
                         </p>
                     </div>
                 </div>
@@ -276,9 +276,65 @@
                 <div class="column is-four-fifths">
                     <div class="content">
                         <h2 class="title is-3">Results</h2>
+                        <h2 class="title is-5">Perturbation Recovery</h2>
+                        <p style="text-align: justify;">
+                            Diffusion Policy captures the multimodality of perturbation recoverty strategies. Given the same perturbation, the character can recover in multiple ways. The result is increased robustness to out-of-distribution perturbations.
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container py-6">
+            <div class="columns is-centered">
+                <div class="column is-align-content-center">
+                   <video controls muted preload playsinline style="border-radius: 5px;">
+                       <source src="./static/videos/horizon-1_noise-12_ckpt-1500_201.mp4" type="video/mp4" />
+                   </video>
+                </div>
+    
+               <div class="column is-align-content-center">
+                   <video controls muted preload playsinline style="border-radius: 5px;">
+                       <source src="./static/videos/horizon-1_noise-12_ckpt-1500_202.mp4" type="video/mp4" />
+                   </video>
+               </div>
+       
+               <!-- Image -->
+               <div class="column is-align-content-center">
+                   <figure class="image">
+                       <img src="static/images/perturbation_plot.png" alt="Description of image">
+                   </figure>
+               </div>
+           </div>
+        </div>
+
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content">
+                        <h2 class="title is-5">Motion Tracking</h2>
+                        <p style="text-align: center;">
+                            Placeholder
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container py-6">
+        </div>
+
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content">
+                        <h2 class="title is-5">Text-to-Motion</h2>
+                        <p style="text-align: center;">
+                            Placeholder
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container py-6">
         </div>
     </section>
 
@@ -287,14 +343,15 @@
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
-            <pre><code>@misc{truong2024pdp,
-        title={PDP: Physics-Based Character Animation via Diffusion Policy},
-        author={Takara E. Truong and Michael Piseno and Zhaoming Xie and C. Karen Liu},
-        year={2024},
-        eprint={2406.00960},
-        archivePrefix={arXiv},
-        primaryClass={cs.GR},
-        url={https://arxiv.org/abs/2406.00960}
+            <pre class="has-background-white" style="white-space: pre-wrap;"><code>
+        @misc{truong2024pdp,
+            title={PDP: Physics-Based Character Animation via Diffusion Policy},
+            author={Takara E. Truong and Michael Piseno and Zhaoming Xie and C. Karen Liu},
+            year={2024},
+            eprint={2406.00960},
+            archivePrefix={arXiv},
+            primaryClass={cs.GR},
+            url={https://arxiv.org/abs/2406.00960}
         }</code></pre>
         </div>
     </section>
