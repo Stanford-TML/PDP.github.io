@@ -74,6 +74,7 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title is-1 publication-title">PDP: Physics-Based Character Animation via Diffusion Policy</h1>
+                        <h3 class="subtitle is-4">SIGGRAPH Asia 2024</h3>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
                                 <a href="https://www.takaratruong.com/">Takara E. Truong</a><sup>1</sup>,</span>
@@ -124,8 +125,7 @@
                                 </span>
                                 <!-- Code Link. -->
                                 <span class="link-block">
-                                    <a href="https://github.com/Stanford-TML"
-                                        class="external-link button is-normal is-rounded is-dark">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark disabled-link">
                                         <span class="icon">
                                             <i class="fab fa-github"></i>
                                         </span>
@@ -226,7 +226,7 @@
                     <div class="content has-text-justified">
                         <p>
                             Generating diverse and realistic human motion that
-                            can physically interact with an environment remains a challenging research area in character animation. Meanwhile, diffusionbased methods, as proposed by the robotics community, have demonstrated the ability to capture highly diverse and multimodal skills. However, naively training a diffusion policy often results in unstable motions for high-frequency, under-actuated control tasks like bipedal locomotion due to rapidly accumulating compounding errors, pushing the agent away from optimal training trajectories. The key idea lies in using RL policies not just for providing optimal trajectories but for providing corrective actions in sub-optimal states, giving the policy a chance to correct for errors caused by environmental stimulus, model errors, or numerical errors in simulation. Our method, PhysicsBased Character Animation via Diffusion Policy (PDP), combines reinforcement learning (RL) and behavior cloning (BC) to create a robust diffusion policy for physics-based character animation. We demonstrate PDP on perturbation recovery, universal motion tracking, and physics-based text-to-motion synthesis.
+                            can physically interact with an environment remains a challenging research area in character animation. Meanwhile, diffusion-based methods, as proposed by the robotics community, have demonstrated the ability to capture highly diverse and multimodal skills. However, naively training a diffusion policy often results in unstable motions for high-frequency, under-actuated control tasks like bipedal locomotion due to rapidly accumulating compounding errors, pushing the agent away from optimal training trajectories. The key idea lies in using RL policies not just for providing optimal trajectories but for providing corrective actions in sub-optimal states, giving the policy a chance to correct for errors caused by environmental stimulus, model errors, or numerical errors in simulation. Our method, Physics-Based Character Animation via Diffusion Policy (PDP), combines reinforcement learning (RL) and behavior cloning (BC) to create a robust diffusion policy for physics-based character animation. We demonstrate PDP on perturbation recovery, universal motion tracking, and physics-based text-to-motion synthesis.
                         </p>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
                             <img src="./static/images/system_overview_and_arch.jpg" alt="PDP method overview">
                         </figure>
                         <p style="text-align: justify;">
-                            Our method consists of three steps. First, we divide a motion dataset into tasks and train an RL policy for each task. Next, we use the expert policies to collect "noisy-state clean-action" trajectories, where the noisy state is obtained by executing actions from the RL policy with added noise, and the clean action is simply the action from the RL policy without noisy. The clean action can be thought of as a corrective action from a noisy state. Lastly, we use the resulting dataset to train a diffusion policy using supervised learning.
+                            Our method consists of three steps. First, we divide a motion dataset into tasks and train an RL policy for each task. Next, we use the expert policies to collect "noisy-state clean-action" trajectories, where the noisy state is obtained by executing actions from the RL policy with added noise, and the clean action is simply the action from the RL policy without noise. The clean action can be thought of as a corrective action from a noisy state. Lastly, we use the resulting dataset to train a diffusion policy using supervised learning.
                         </p>
                     </div>
                 </div>
@@ -271,29 +271,29 @@
 
     <!-- Results -->
     <section class="section">
-        <div class="container is-max-desktop">
+        <div class="container is-max-desktop py-3">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content">
                         <h2 class="title is-3">Results</h2>
                         <h2 class="title is-5">Perturbation Recovery</h2>
                         <p style="text-align: justify;">
-                            Diffusion Policy captures the multimodality of perturbation recoverty strategies. Given the same perturbation, the character can recover in multiple ways. The result is increased robustness to out-of-distribution perturbations.
+                            Diffusion Policy captures the multimodality of perturbation recoverty strategies. Given the same perturbation, the character can recover in multiple ways. Capturing this multimodality allows for increased robustness to out-of-distribution perturbations.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container py-6">
+        <div class="container px-10pc" style="padding-bottom: 30px;">
             <div class="columns is-centered">
                 <div class="column is-align-content-center">
-                   <video controls muted preload playsinline style="border-radius: 5px;">
+                   <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
                        <source src="./static/videos/horizon-1_noise-12_ckpt-1500_201.mp4" type="video/mp4" />
                    </video>
                 </div>
     
                <div class="column is-align-content-center">
-                   <video controls muted preload playsinline style="border-radius: 5px;">
+                   <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
                        <source src="./static/videos/horizon-1_noise-12_ckpt-1500_202.mp4" type="video/mp4" />
                    </video>
                </div>
@@ -301,40 +301,118 @@
                <!-- Image -->
                <div class="column is-align-content-center">
                    <figure class="image">
-                       <img src="static/images/perturbation_plot.png" alt="Description of image">
+                       <img src="static/images/perturbation_plot.jpg" alt="Description of image">
                    </figure>
                </div>
            </div>
         </div>
 
-        <div class="container is-max-desktop">
+        <div class="container is-max-desktop py-3">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content">
                         <h2 class="title is-5">Motion Tracking</h2>
-                        <p style="text-align: center;">
-                            Placeholder
+                        <p style="text-align: justify;">
+                            PDP is capable of tracking a wide range of dynamic motions. We successfully track 98.9% of all AMASS* motions. *Dataset does not contain motions that are infeasible in our simulator, such as those involving object interactions.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container py-6">
+        <div class="container px-10pc" style="padding-bottom: 30px;">
+            <div class="columns is-centered">
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">Walk</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/motion_tracking/walking.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">Squat</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/motion_tracking/squat.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">Kick</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/motion_tracking/kicking.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+           </div>
+           <div class="columns is-centered">
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">Handstand</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/motion_tracking/handstand.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">Breakdance</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/motion_tracking/breakdance.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">Backflip</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/motion_tracking/backflip.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="container is-max-desktop">
+        <div class="container is-max-desktop py-3">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content">
                         <h2 class="title is-5">Text-to-Motion</h2>
-                        <p style="text-align: center;">
-                            Placeholder
+                        <p style="text-align: justify;">
+                            PDP is capable of generating diverse and realistic human motion from text descriptions. We can also chain together text commands to synthesize novel motion sequences.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container py-6">
+        <div class="container px-10pc" style="padding-bottom: 30px;">
+            <div class="columns is-centered">
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">"A person walks clockwise in a circle"</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/t2m/walk_clockwise.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">"Kneel down on the ground"</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/t2m/kneel.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+                <div class="column is-align-content-end is-4">
+                    <div class="has-text-centered">
+                        <h3 class="py-2">"A person jumps in the air"</h3>
+                        <video controls autoplay loop muted preload playsinline style="border-radius: 5px;">
+                            <source src="./static/videos/t2m/jump.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

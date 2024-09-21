@@ -2,6 +2,19 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.px-10pc {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.6;
+  text-decoration: none;
+  color: #999;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
